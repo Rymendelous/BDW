@@ -25,7 +25,8 @@ DROP TABLE IF EXISTS joue_a;
 DROP TABLE IF EXISTS est_configure_selon;
 
 CREATE TABLE BRIQUE(
-idB serial PRIMARY KEY,
+PRIMARY KEY(idB),
+idB serial,
 nomB VARCHAR(50),
 longueur integer,
 largeur integer,
@@ -50,7 +51,7 @@ CREATE TABLE DATEF(
 
 CREATE TABLE USINE(
     PRIMARY KEY (idU,dateFabrication),
-    idU INTEGER NOT NULL,
+    idU INTEGER,
     dateFabrication VARCHAR(50),
     ville VARCHAR(50),
     pays  VARCHAR(50),
@@ -209,10 +210,10 @@ ALTER TABLE accompagne ADD FOREIGN KEY (idConstruction) REFERENCES CONSTRUCTION 
 ALTER TABLE accompagne ADD FOREIGN KEY (idB) REFERENCES BRIQUE (idB);
 ALTER TABLE accompagne ADD FOREIGN KEY (idPhoto) REFERENCES PHOTO (idPhoto);
 
-ALTER TABLE se_divise ADD FOREIGN KEY (numTour) REFERENCES TOUR (numTour);
+ALTER TABLE se_divise ADD FOREIGN KEY (numTour,idB) REFERENCES TOUR (numTour,idB);
 ALTER TABLE se_divise ADD FOREIGN KEY (idPartie) REFERENCES PARTIE (idPartie);
 
-ALTER TABLE joue ADD FOREIGN KEY (numTour) REFERENCES TOUR (numTour);
+ALTER TABLE joue ADD FOREIGN KEY (numTour,idB) REFERENCES TOUR (numTour,idB);
 ALTER TABLE joue ADD FOREIGN KEY (idJoueur) REFERENCES JOUEUR (idJoueur);
 
 ALTER TABLE joue_a ADD FOREIGN KEY (idJoueur) REFERENCES JOUEUR (idJoueur);
