@@ -1,24 +1,24 @@
-DELETE FROM BRIQUE;
-DELETE FROM CRITERE;
-DELETE FROM DATEF;
-DELETE FROM USINE;
-DELETE FROM CONSTRUCTION;
-DELETE FROM OFFICIEL;
-DELETE FROM AMATEUR;
-DELETE FROM ETAPES;
-DELETE FROM PHOTO;
-DELETE FROM TOUR;
-DELETE FROM JOUEUR;
-DELETE FROM PARTIE;
-DELETE FROM PARAMETRE;
-DELETE FROM fabrique_un_type_de;
-DELETE FROM est_assemble;
-DELETE FROM suit;
-DELETE FROM accompagne;
-DELETE FROM se_divise;
-DELETE FROM joue;
-DELETE FROM joue_a;
-DELETE FROM est_configure_selon;
+DELETE FROM projet.BRIQUE;
+DELETE FROM projet.CRITERE;
+DELETE FROM projet.DATEF;
+DELETE FROM projet.USINE;
+DELETE FROM projet.CONSTRUCTION;
+DELETE FROM projet.OFFICIEL;
+DELETE FROM projet.AMATEUR;
+DELETE FROM projet.ETAPES;
+DELETE FROM projet.PHOTO;
+DELETE FROM projet.TOUR;
+DELETE FROM projet.JOUEUR;
+DELETE FROM projet.PARTIE;
+DELETE FROM projet.PARAMETRE;
+DELETE FROM projet.fabrique_un_type_de;
+DELETE FROM projet.est_assemble;
+DELETE FROM projet.suit;
+DELETE FROM projet.accompagne;
+DELETE FROM projet.se_divise;
+DELETE FROM projet.joue;
+DELETE FROM projet.joue_a;
+DELETE FROM projet.est_configure_selon;
 
 INSERT into projet.BRIQUE (idB,nomB,longueur,largeur,hauteur,forme,couleur,mots_cles,idCritere)
     (SELECT id AS idB, NULL AS nomB, longueur, largeur, hauteur, NULL AS forme, couleur, NULL AS mots_cles, NULL AS idCritere 
