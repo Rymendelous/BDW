@@ -122,4 +122,18 @@ VALUES (4, 'Temps de réflexion', '30 secondes par tour');
 INSERT INTO projet.PARAMETRE (idParam, propriete, valeur) 
 VALUES (5, 'Nombre maximum de joueurs', '4');
 
+INSERT INTO projet.joue_a (idPartie, idJoueur, score_partie, gagnant)
+VALUES
+(1, 1, 18, TRUE),  
+(1, 2, 15, FALSE), 
+(2, 3, 20, TRUE),   
+(2, 4, 12, FALSE), 
+(3, 2, 22, TRUE),   
+(3, 5, 19, FALSE), 
+(4, 1, 25, TRUE),  
+(4, 3, 21, FALSE),  
+(5, 4, 30, TRUE),   
+(5, 2, 27, FALSE);  
+
+
 
