@@ -10,7 +10,7 @@ footer {
 }
 
 header {
-    background-color: #FF9900;
+    background-color: #fce359;
     text-align: center;
     border-radius: 1em;
 }
@@ -26,7 +26,7 @@ header {
 
 nav {
 	flex : 2;
-    background-color: #b59ff7;
+    background-color: #f52626;
     padding-left: 0.5em;
     padding-right: 0.5em;
 	margin-left: 2em;
