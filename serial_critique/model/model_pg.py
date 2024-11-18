@@ -88,5 +88,7 @@ def get_table_like(connexion, nom_table, like_pattern):
     #    like_pattern=sql.Placeholder(name=like_pattern))
     return execute_select_query(connexion, query, [motif])
 
-
-
+def top_couleur(connexion, nom_table):
+    
+    query = sql.SQL('SELECT couleur FROM {table} GROUP BY couleur ORDER BY COUNT(idB) DESC LIMIT 5').format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)

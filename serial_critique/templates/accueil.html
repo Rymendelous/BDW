@@ -1,25 +1,30 @@
 {% extends "base.html" %}
 
 {% block main_content %}
-<h2>Le site de critique sur les séries pour le cours de BDW</h2>
+<h2>Le site de jeu de placement de briques</h2>
 
 <p id="parag_description">
-	Vous pouvez gérer des séries, des épisodes, et les acteur.ice.s.
+	L'objectif du jeu est que toutes les cases cibles de la grille soient recouvertes par des briques.
 	<br>
 	Utilisez le menu à gauche pour découvrir les fonctionnalités de ce site.
 </p>
 
-<p>Que faire sur ce site ?</p>
-<ul>
-	<li>Afficher les données de la base</li>
-	<li>Ajouter une série</li>
-	<li>Rechercher une série ou une actrice</li>
-	<li>Générer un historique de votre activité sur le site</li>
-	<li>...</li>
-</ul>
+<p>QUELQUE STATISTIQUES📊</p>
 
+<p>Nombre d'instances des tables photo, joueur et tour :</p>
+<ul>
+	<li>Il y a {{REQUEST_VARS['photo'][0][0]}} instances dans la table photo.</li>
+	<li>Il y a {{REQUEST_VARS['tour'][0][0]}} instances dans la table tour.</li>
+	<li>Il y a {{REQUEST_VARS['joueur'][0][0]}} instances dans la table joueur.</li>
+</ul>
+<p>Top-5 des couleurs ayant le plus de briques :</p>
+<ul>
+	{%for couleur in REQUEST_VARS['couleur'] %}
+	<li>La couleur {{couleur[0]}}</li>
+	{% endfor %}
+</ul>
 <div>
-	<img src="serial_critique/static/img/top-series.jpg" />
+	<img src="serial_critique/static/img/lego.png" />
 </div>
 
 {% include 'message.html' %}
