@@ -89,10 +89,26 @@ def get_table_like(connexion, nom_table, like_pattern):
     return execute_select_query(connexion, query, [motif])
 
 def top_couleur(connexion, nom_table):
-    
     query = sql.SQL('SELECT couleur FROM {table} GROUP BY couleur ORDER BY COUNT(idB) DESC LIMIT 5').format(table=sql.Identifier(nom_table))
     return execute_select_query(connexion, query)
 
 def min_defausse(connexion, nom_table):
-    query = sql.SQL('SELECT idpartie FROM {table} WHERE actions = %s GROUP BY idpartie HAVING COUNT(actions) = (SELECT MIN(nombre_defausses) FROM (SELECT idpartie, COUNT(actions) AS nombre_defausses FROM {table} WHERE actions = %s GROUP BY idpartie) AS defausse_counts)').format(table=sql.Identifier(nom_table))
-    return execute_select_query(connexion, query, params=('%Brique défaussée%', '%Brique défaussée%'))
+    query = sql.SQL("""SELECT COUNT(actions) AS nombre_defausses FROM {table} WHERE actions = 'Brique défaussée' GROUP BY idpartie ORDER BY nombre_defausses ASC LIMIT 3""").format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+
+def min_defausse_idparties(connexion, nom_table):
+    query = sql.SQL("""SELECT idpartie FROM {table} WHERE actions = 'Brique défaussée' GROUP BY idpartie ORDER BY COUNT(actions) ASC LIMIT 3""").format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+
+def score_min_joueur(connexion, nom_table):
+    query = sql.SQL('SELECT MIN(score_partie) FROM {table} GROUP BY idjoueur ORDER BY idjoueur').format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+
+def score_max_joueur(connexion, nom_table):
+    query = sql.SQL('SELECT MAX(score_partie) FROM {table} GROUP BY idjoueur ORDER BY idjoueur').format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+
+
+def joueur(connexion, nom_table):
+    query = sql.SQL('SELECT prenom FROM {table} GROUP BY idjoueur ORDER BY idjoueur').format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)

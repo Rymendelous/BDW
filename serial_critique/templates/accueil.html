@@ -25,14 +25,34 @@
 	{% endfor %}
 </ul>
 
-<p>La partie avec le plus petit nombre de pièces défaussées est:</p>
+<p>Scores des joueurs :</p>
 <ul>
-    {% if REQUEST_VARS['min_defausse'] and REQUEST_VARS['min_defausse'][0] %}
-    <li>La partie numéro {{REQUEST_VARS['min_defausse'][0][0]}} .</li>
-    {% else %}
-    <li>Pas de données disponibles pour les pièces défaussées.</li>
-    {% endif %}
+    <li>Scores minimums :</li>
+    <ul>
+        {% for i in range(5) %}
+            <li>{{ REQUEST_VARS['joueurs'][i][0] }} a un score minimal de {{ REQUEST_VARS['score_min_joueur'][i][0] }}.</li>
+        {% endfor %}
+    </ul>
+
+    <li>Scores maximums :</li>
+    <ul>
+        {% for i in range(5) %}
+            <li>{{ REQUEST_VARS['joueurs'][i][0] }} a un score maximal de {{ REQUEST_VARS['score_max_joueur'][i][0] }}.</li>
+        {% endfor %}
+    </ul>
 </ul>
+
+
+<p>Les parties avec le plus petit nombre de pièces défaussées est:</p>
+{% if REQUEST_VARS['min_defausse_idparties'] %}
+    <ul>
+        {% for i in range(3) %}
+            <li>La partie numéro {{ REQUEST_VARS['min_defausse_idparties'][i][0] }} a {{ REQUEST_VARS['min_defausse'][i][0] }} pièce défaussée.</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucune partie trouvée avec des pièces défaussées.</p>
+{% endif %}
 
 
 {% include 'message.html' %}
