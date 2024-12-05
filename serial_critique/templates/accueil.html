@@ -17,11 +17,21 @@
 	<li>Il y a {{REQUEST_VARS['tour'][0][0]}} instances dans la table tour.</li>
 	<li>Il y a {{REQUEST_VARS['joueur'][0][0]}} instances dans la table joueur.</li>
 </ul>
+
 <p>Les 5 couleurs ayant le plus de briques sont les suivantes :</p>
 <ul>
 	{%for couleur in REQUEST_VARS['couleur'] %}
 	<li>La couleur {{couleur[0]}}</li>
 	{% endfor %}
+</ul>
+
+<p>La partie avec le plus petit nombre de pièces défaussées est:</p>
+<ul>
+    {% if REQUEST_VARS['min_defausse'] and REQUEST_VARS['min_defausse'][0] %}
+    <li>La partie numéro {{REQUEST_VARS['min_defausse'][0][0]}} .</li>
+    {% else %}
+    <li>Pas de données disponibles pour les pièces défaussées.</li>
+    {% endif %}
 </ul>
 
 

@@ -92,3 +92,7 @@ def top_couleur(connexion, nom_table):
     
     query = sql.SQL('SELECT couleur FROM {table} GROUP BY couleur ORDER BY COUNT(idB) DESC LIMIT 5').format(table=sql.Identifier(nom_table))
     return execute_select_query(connexion, query)
+
+def min_defausse(connexion, nom_table):
+    query = sql.SQL('SELECT idpartie FROM {table} WHERE actions = %s GROUP BY idpartie HAVING COUNT(actions) = (SELECT MIN(nombre_defausses) FROM (SELECT idpartie, COUNT(actions) AS nombre_defausses FROM {table} WHERE actions = %s GROUP BY idpartie) AS defausse_counts)').format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query, params=('%Brique défaussée%', '%Brique défaussée%'))
