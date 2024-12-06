@@ -86,21 +86,6 @@
 {% else %}
     <p>Aucune partie trouvée avec des pièces piochées.</p>
 {% endif %}
-<body>
-    <div class="grille">
-        {% for i in range(REQUEST_VARS['grille']['lignes']) %}
-            <div class="ligne">
-                {% for j in range(REQUEST_VARS['grille']['colonnes']) %}
-                    {% if j in REQUEST_VARS['grille']['hachures'][i] %}
-                        <div class="case hachuree"></div>
-                    {% else %}
-                        <div class="case"></div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        {% endfor %}
-    </div>
-</body>
 
 {% include 'message.html' %}
 

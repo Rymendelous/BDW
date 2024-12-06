@@ -1,14 +1,44 @@
 {% extends "base.html" %}
 
 {% block main_content %}
-<h2>Ajout d'une série</h2>
-
+<h2>Pioche</h2>
 <form method="post">
-	<label for="nom_serie">Nom de la série : </label>
-	<input type="text" name="nom_serie" id="nom_serie" placeholder="Orange is the new black" required />
-	<br/><br/>
-	<input type="submit" name="bouton_valider" value="Ajouter"/>
+    <h3>Choisissez une brique :</h3>
+    <label for="brique_selectionnee">Sélectionnez une brique :</label>
+    <select id="brique_selectionnee" name="brique_selectionnee" required>
+        {% for brique_id in REQUEST_VARS['pioche_options'] %}
+            <option value="{{brique_id}}">brique {{ brique_id }}</option>
+        {% endfor %}
+    </select>
+    <br/><br/>
+    <button type="submit" name="bouton_valider">Valider</button>
 </form>
+
+{% if REQUEST_VARS['brique_infos'] %}
+    <div>
+        <h3>Informations sur la brique sélectionnée :</h3>
+        <p><strong>Identifiant :</strong> {{ REQUEST_VARS['brique_infos'].idB }}</p>
+        <p><strong>Longueur :</strong> {{ REQUEST_VARS['brique_infos'].longueur }}</p>
+        <p><strong>Largeur :</strong> {{ REQUEST_VARS['brique_infos'].largeur }}</p>
+    </div>
+{% endif %}
+
+<body>
+    <div class="grille">
+        {% for i in range(REQUEST_VARS['grille']['lignes']) %}
+            <div class="ligne">
+                {% for j in range(REQUEST_VARS['grille']['colonnes']) %}
+                    {% if j in REQUEST_VARS['grille']['hachures'][i] %}
+                        <div class="case hachuree"></div>
+                    {% else %}
+                        <div class="case"></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+
 
 {% include 'message.html' %}
 
