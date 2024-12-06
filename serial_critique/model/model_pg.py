@@ -145,12 +145,12 @@ def max_pioche_idparties(connexion, nom_table):
 def generer_grille(nb_lignes, nb_colonnes):
     lignes_hachures = [
         [],
-        [1, 2, 6, 7],
-        [2, 3, 5, 6],
-        [1, 2, 4, 6],
-        [2, 3, 5, 7],
-        [1, 4, 6, 7],
-        [2, 5, 6],
+        [1,2,5,6],
+        [1,3,5,7],
+        [1,2,3,5,7],
+        [1,2,3,5,7],
+        [1,3,5,7],
+        [1,2,5,6],
         []
     ]
     return {"lignes": nb_lignes, "colonnes": nb_colonnes, "hachures": lignes_hachures}
