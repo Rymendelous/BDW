@@ -93,3 +93,31 @@ footer {
     background-color: #ffda07c8;
     border-color: #ffb300;
 }
+
+.grille {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.ligne {
+    display: flex;
+    gap: 0;
+}
+
+.case {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.hachuree {
+    background: repeating-linear-gradient(
+        45deg, 
+        #ccc,  
+        #ccc 5px,
+        #fff 5px, 
+        #fff 10px 
+    );
+}

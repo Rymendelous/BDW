@@ -38,6 +38,7 @@ def get_instances(connexion, nom_table):
     query = sql.SQL('SELECT * FROM {table}').format(table=sql.Identifier(nom_table), )
     return execute_select_query(connexion, query)
 
+#Nombre d’instances pour 3 tables de votre choix 
 def count_instances(connexion, nom_table):
     """
     Retourne le nombre d'instances de la table nom_table
@@ -88,18 +89,14 @@ def get_table_like(connexion, nom_table, like_pattern):
     #    like_pattern=sql.Placeholder(name=like_pattern))
     return execute_select_query(connexion, query, [motif])
 
+#fonctionnalité 1
+
+#top-5 des couleurs ayant le plus de briques 
 def top_couleur(connexion, nom_table):
     query = sql.SQL('SELECT couleur FROM {table} GROUP BY couleur ORDER BY COUNT(idB) DESC LIMIT 5').format(table=sql.Identifier(nom_table))
     return execute_select_query(connexion, query)
 
-def min_defausse(connexion, nom_table):
-    query = sql.SQL("""SELECT COUNT(actions) AS nombre_defausses FROM {table} WHERE actions = 'Brique défaussée' GROUP BY idpartie ORDER BY nombre_defausses ASC LIMIT 3""").format(table=sql.Identifier(nom_table))
-    return execute_select_query(connexion, query)
-
-def min_defausse_idparties(connexion, nom_table):
-    query = sql.SQL("""SELECT idpartie FROM {table} WHERE actions = 'Brique défaussée' GROUP BY idpartie ORDER BY COUNT(actions) ASC LIMIT 3""").format(table=sql.Identifier(nom_table))
-    return execute_select_query(connexion, query)
-
+#pour chaque joueuse, son score minimal et son score maximal ;
 def score_min_joueur(connexion, nom_table):
     query = sql.SQL('SELECT MIN(score_partie) FROM {table} GROUP BY idjoueur ORDER BY idjoueur').format(table=sql.Identifier(nom_table))
     return execute_select_query(connexion, query)
@@ -108,7 +105,52 @@ def score_max_joueur(connexion, nom_table):
     query = sql.SQL('SELECT MAX(score_partie) FROM {table} GROUP BY idjoueur ORDER BY idjoueur').format(table=sql.Identifier(nom_table))
     return execute_select_query(connexion, query)
 
-
 def joueur(connexion, nom_table):
     query = sql.SQL('SELECT prenom FROM {table} GROUP BY idjoueur ORDER BY idjoueur').format(table=sql.Identifier(nom_table))
     return execute_select_query(connexion, query)
+
+#parties avec le plus petit et plus grand nombre de pièces défaussées, de pièces piochées ;
+def min_defausse(connexion, nom_table):
+    query = sql.SQL("""SELECT COUNT(actions) AS nombre_defausses FROM {table} WHERE actions = 'Brique défaussée' GROUP BY idpartie ORDER BY nombre_defausses ASC LIMIT 3""").format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+
+def min_defausse_idparties(connexion, nom_table):
+    query = sql.SQL("""SELECT idpartie FROM {table} WHERE actions = 'Brique défaussée' GROUP BY idpartie ORDER BY COUNT(actions) ASC LIMIT 3""").format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+
+def max_defausse(connexion, nom_table):
+    query = sql.SQL("""SELECT COUNT(actions) AS nombre_defausses FROM {table} WHERE actions = 'Brique défaussée' GROUP BY idpartie ORDER BY nombre_defausses DESC LIMIT 3""").format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+
+def max_defausse_idparties(connexion, nom_table):
+    query = sql.SQL("""SELECT idpartie FROM {table} WHERE actions = 'Brique défaussée' GROUP BY idpartie ORDER BY COUNT(actions) DESC LIMIT 3""").format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+
+def min_pioche(connexion, nom_table):
+    query = sql.SQL("""SELECT COUNT(actions) AS nombre_defausses FROM {table} WHERE actions = 'Brique placée sur la grille' GROUP BY idpartie ORDER BY nombre_defausses ASC LIMIT 3""").format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+
+def min_pioche_idparties(connexion, nom_table):
+    query = sql.SQL("""SELECT idpartie FROM {table} WHERE actions = 'Brique placée sur la grille' GROUP BY idpartie ORDER BY COUNT(actions) ASC LIMIT 3""").format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)    
+
+def max_pioche(connexion, nom_table):
+    query = sql.SQL("""SELECT COUNT(actions) AS nombre_defausses FROM {table} WHERE actions = 'Brique placée sur la grille' GROUP BY idpartie ORDER BY nombre_defausses DESC LIMIT 3""").format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+
+def max_pioche_idparties(connexion, nom_table):
+    query = sql.SQL("""SELECT idpartie FROM {table} WHERE actions = 'Brique placée sur la grille' GROUP BY idpartie ORDER BY COUNT(actions) DESC LIMIT 3""").format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+    
+def generer_grille(nb_lignes, nb_colonnes):
+    lignes_hachures = [
+        [],
+        [1, 2, 6, 7],
+        [2, 3, 5, 6],
+        [1, 2, 4, 6],
+        [2, 3, 5, 7],
+        [1, 4, 6, 7],
+        [2, 5, 6],
+        []
+    ]
+    return {"lignes": nb_lignes, "colonnes": nb_colonnes, "hachures": lignes_hachures}
