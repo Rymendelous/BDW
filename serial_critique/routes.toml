@@ -9,16 +9,11 @@ controleur = "controleurs/accueil.py"
 template = "accueil.html"
 
 [[routes]]
-url = "rechercher"
-controleur = "controleurs/rechercher.py"
-template = "rechercher.html"
-
-[[routes]]
-url = "historique"
-controleur = "controleurs/historique.py"
-template = "historique.html"
-
-[[routes]]
 url = "ajouter"
 controleur = "controleurs/ajouter.py"
 template = "ajouter.html"
+
+[[routes]]
+url = "jeu"
+controleur = "controleurs/jeu.py"
+template = "jeu.html"

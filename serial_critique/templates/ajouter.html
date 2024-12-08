@@ -3,26 +3,24 @@
 {% block main_content %}
 <h2>Pioche</h2>
 <form method="post">
-    <h3>Choisissez une brique :</h3>
     <label for="brique_selectionnee">Sélectionnez une brique :</label>
     <select id="brique_selectionnee" name="brique_selectionnee" required>
-        {% for brique_id in REQUEST_VARS['pioche_options'] %}
-            <option value="{{brique_id}}">brique {{ brique_id }}</option>
-        {% endfor %}
+        <option value="{{REQUEST_VARS['option1']}}">Brique {{REQUEST_VARS['option1']}}</option>
+        <option value="{{REQUEST_VARS['option2']}}">Brique {{REQUEST_VARS['option2']}}</option>
+        <option value="{{REQUEST_VARS['option3']}}">Brique {{REQUEST_VARS['option3']}}</option>
+        <option value="{{REQUEST_VARS['option4']}}">Brique {{REQUEST_VARS['option4']}}</option>
     </select>
-    <br/><br/>
+    <br>
     <button type="submit" name="bouton_valider">Valider</button>
-</form>
-
-{% if REQUEST_VARS['brique_infos'] %}
     <div>
         <h3>Informations sur la brique sélectionnée :</h3>
-        <p><strong>Identifiant :</strong> {{ REQUEST_VARS['brique_infos'].idB }}</p>
-        <p><strong>Longueur :</strong> {{ REQUEST_VARS['brique_infos'].longueur }}</p>
-        <p><strong>Largeur :</strong> {{ REQUEST_VARS['brique_infos'].largeur }}</p>
+        {% if REQUEST_VARS.infos_brique %}
+            <p>{{REQUEST_VARS['infos_brique']}}</p>
+        {% endif %}
     </div>
-{% endif %}
+</form>
 
+    
 <body>
     <div class="grille">
         {% for i in range(REQUEST_VARS['grille']['lignes']) %}

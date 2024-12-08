@@ -172,12 +172,16 @@ def pioche(connexion, nom_table):
         print(f"Erreur lors de la récupération de la brique : {e}")
         return None
 
-#fonction pour retourner les infos de la brique selectionnée dans le formulaire ie brique_id
-def get_infos_brique(connexion, nom_table, brique_id):
-    query = "SELECT idB, longueur, largeur FROM briques WHERE idB = %s"
-    result = execute_select_query(connexion, query, [brique_id])
-    if result:
-        return result[0]
-    else:
-        print(f"Aucune brique trouvée avec l'id {brique_id}.")
+def get_infos_brique(connexion, nom_table, brique_selectionnee):
+    try:
+        query = sql.SQL("SELECT * FROM {table} WHERE idB = %s").format(table=sql.Identifier(nom_table))
+        result = execute_select_query(connexion, query, [brique_selectionnee])
+        
+        if result:
+            return result
+        else:
+            print(f"Aucune brique trouvée avec l'id {brique_selectionnee}.")
+            return None
+    except Exception as e:
+        print(f"Erreur lors de l'exécution de la requête : {e}")
         return None

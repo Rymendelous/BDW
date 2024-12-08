@@ -1,123 +1,275 @@
+/* Style global */
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
 body {
-    background-color: #FFFFFF;
+    background-color: #1c1c1c;
+    font-family: 'Russo One', sans-serif;
+    overflow-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    color: #fff;
 }
-
-header,
-nav,
-main,
-footer {
-    padding: 1em 0;
+h1{
+    color: #000; animation: fadeIn 1s ease-in-out;
+    opacity: 100;
 }
-
+/* En-tête */
 header {
-    background-color: #fce359;
+    background-color: #ffd502;
     text-align: center;
-    border-radius: 1em;
+    padding: 1.5em 0;
+    border-radius: 2em;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 10;
+    padding-top: 0.1em;
+    color: #000;
 }
 
+/* Logo dans le header */
+header img {
+    max-width: 150px;
+    height: auto;
+    transition: transform 0.3s ease;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    border-radius: 10%;
+    animation: rotateSmooth 10s infinite ease-in-out;
+}
+@keyframes rotateSmooth {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Effet survol sur le logo */
+header img:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+    filter: brightness(1.2);
+}
+
+/* Structure centrale */
 #div-central {
     display: flex;
-	justify-content: space-between;
-	align-items: stretch;
+    justify-content: space-between;
+    align-items: stretch;
     margin: auto;
-	box-sizing: border-box;
-	height: 100%;
+    height: 100%;
+    padding: 0 2em;
 }
 
+/* Navigation */
 nav {
-	flex : 2;
+    flex: 2;
     background-color: #f52626;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-	margin-left: 2em;
-    line-height: 2em;
+    padding: 1.5em;
+    margin-left: 2em;
+    border-radius: 2em;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 50px;
+    margin-bottom: 1000px;
 }
 
 nav > ul {
-	padding-left: 0.5em;
+    padding-left: 0.5em;
+    list-style: none;
 }
 
 nav a {
-    color: #0000FF;
-    text-decoration: underline;
-}
-
-nav a:visited {
-    color: #0000FF;
+    display: block;
+    padding: 0.75em 1.5em;
+    margin: 0.5em 0;
+    color: #fff;
     text-decoration: none;
+    border-radius: 1.5em;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
+/* Effet hover sur les liens de la navigation */
+nav a:hover {
+    background-color: #000;
+    color: #fce359;
+    transform: scale(1.1);
+}
+
+/* Section principale */
 main {
-	flex : 10;
-    background-color: #FFFFFF;
-    padding-left: 3em;
+    flex: 10;
+    background-color: #000000;
+    padding: 2em;
+    border-radius: 2em;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding-left: 150px;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px;
 }
 
+/* Pied de page */
 footer {
-	display: flex;
-	justify-content: space-around;
-    background-color: #669933;
-    border-radius: 1em;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f52626;
+    padding: 1.5em;
+    border-radius: 2em;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.fond-jaune {
-	background-color: yellow;
+/* Alertes */
+.alert-error, .alert-success, .alert-warning {
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 1em;
+    font-weight: bold;
 }
 
 .alert-error {
-    padding: 0.75rem 1.25rem;
-    margin: 1.5rem 0rem;
-    border: 2px solid transparent;
-    border-radius: 0.25rem;
-    color: rgb(0, 0, 0);
+    border: 2px solid #ff0000;
     background-color: #ff00003d;
-    border-color: #ff0000;
+    color: #000;
 }
 
 .alert-success {
-    padding: 0.75rem 1.25rem;
-    margin: 1.5rem 0rem;
-    border: 2px solid transparent;
-    border-radius: 0.25rem;
-    color: rgb(0, 0, 0);
+    border: 2px solid #00ff00;
     background-color: #48ff004e;
-    border-color: #00ff00;
+    color: #000;
 }
 
 .alert-warning {
-    padding: 0.75rem 1.25rem;
-    margin: 1.5rem 0rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-    color: rgb(0, 0, 0);
+    border: 2px solid #ffb300;
     background-color: #ffda07c8;
-    border-color: #ffb300;
+    color: #000;
 }
 
+/* Grille et cases */
 .grille {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 0.5em;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
 }
 
 .ligne {
     display: flex;
-    gap: 0;
+    gap: 0.5em;
+    animation: fadeIn 1s ease-out;
+    opacity: 100;
 }
-
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .case {
-    width: 40px;
-    height: 40px;
-    border: 1px solid black;
-    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    background-color: #fce359;
+    border-radius: 10px;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    background-color:#fff
 }
 
+/* Effet hover sur les cases de la grille */
+.case:hover {
+    background-color: #ffcc00;
+    transform: scale(1.1);
+}
+
+/* Grille noire et blanche */
 .hachuree {
     background: repeating-linear-gradient(
-        45deg, 
-        #555,  
-        #ccc 5px,
-        #fff 5px, 
-        #fff 10px 
+        45deg,
+        #000,
+        #fff 5px,
+        #000 5px,
+        #000 10px
     );
 }
+
+/* Style du bouton brique */
+button.brique {
+    background-color: #ff6f00;
+    color: #fff;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 2em;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Effet 'brique' avec style LEGO */
+button.brique:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #ffd400;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+button.brique:hover {
+    transform: scale(1.1);
+    background-color: #d35700;
+}
+
+button.brique:hover:before {
+    transform: scale(1);
+}
+
+/* Focus on button brique */
+button.brique:focus {
+    outline: none;
+}
+
+/* Animations */
+@keyframes legoBounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+button.brique:active {
+    animation: legoBounce 0.3s ease-in-out;
+}
+
