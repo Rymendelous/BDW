@@ -1,4 +1,4 @@
-from model.model_pg import count_instances, top_couleur , min_defausse, score_min_joueur, score_max_joueur,joueur,min_defausse_idparties,max_defausse,max_defausse_idparties,min_pioche,min_pioche_idparties,max_pioche,max_pioche_idparties , brique_plus_grandes , top_parties
+from model.model_pg import count_instances, top_couleur , min_defausse, score_min_joueur, score_max_joueur,joueur,min_defausse_idparties,max_defausse,max_defausse_idparties,min_pioche,min_pioche_idparties,max_pioche,max_pioche_idparties , brique_plus_grandes 
 
 REQUEST_VARS['photo'] = count_instances(SESSION['CONNEXION'], 'photo')
 REQUEST_VARS['tour'] = count_instances(SESSION['CONNEXION'], 'tour')
