@@ -1,3 +1,0 @@
-2024-12-08 14:32:50.759297 - consultation de l'historique
-2024-12-08 14:32:52.117880 - consultation de l'historique
-2024-12-08 14:32:54.292093 - consultation de l'historique
