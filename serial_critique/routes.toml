@@ -13,7 +13,3 @@ url = "ajouter"
 controleur = "controleurs/ajouter.py"
 template = "ajouter.html"
 
-[[routes]]
-url = "jeu"
-controleur = "controleurs/jeu.py"
-template = "jeu.html"

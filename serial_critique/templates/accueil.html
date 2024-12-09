@@ -86,6 +86,22 @@
     <p>Aucune partie trouvée avec des pièces piochées.</p>
 {% endif %}
 
+<p>Briques de la bd avec les plus grandes dimensions :</p>
+
+{% if REQUEST_VARS['brique_plus_grandes']  %}
+    <ul>
+        <li>{{ REQUEST_VARS['brique_plus_grandes'][0][0] }}</li>
+    </ul>
+    <ul>
+        <li>{{ REQUEST_VARS['brique_plus_grandes'][1][0] }}</li>
+    </ul>
+    <ul>
+        <li>{{ REQUEST_VARS['brique_plus_grandes'][2][0] }}</li>
+    </ul>
+{% else %}
+    <p>Aucun grosse brique trouvé.</p>
+{% endif %}
+
 {% include 'message.html' %}
 
 {% endblock %}

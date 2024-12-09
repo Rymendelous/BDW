@@ -299,6 +299,37 @@ INSERT INTO projet.TOUR (numTour, idB, actions, idPartie)
 VALUES (35, 35, 'Brique défaussée', 7);
 INSERT INTO projet.TOUR (numTour, idB, actions, idPartie)
 VALUES (36, 36, 'Brique placée sur la grille', 7);
+INSERT INTO projet.TOUR (numTour, idB, actions, idPartie) 
+VALUES (1, 576, 'Brique placée sur la grille', 58), 
+       (2, 6, 'Brique placée sur la grille', 58), 
+       (3, 8, 'Brique défaussée', 58),
+       (4, 7, 'Brique placée sur la grille', 58),
+       (5, 13, 'Brique défaussée', 58),
+       (6, 14, 'Brique placée sur la grille', 58),
+       (7, 15, 'Brique placée sur la grille', 58),
+       (8, 16, 'Brique défaussée', 58);
+INSERT INTO projet.TOUR (numTour, idB, actions, idPartie) 
+VALUES (1, 512, 'Brique placée sur la grille', 59), 
+       (2, 7, 'Brique défaussée', 59), 
+       (3, 9, 'Brique placée sur la grille', 59),
+       (4, 17, 'Brique placée sur la grille', 59),
+       (5, 18, 'Brique défaussée', 59),
+       (6, 19, 'Brique placée sur la grille', 59),
+       (7, 20, 'Brique défaussée', 59),
+       (8, 21, 'Brique placée sur la grille', 59),
+       (9, 22, 'Brique défaussée', 59);
+INSERT INTO projet.TOUR (numTour, idB, actions, idPartie) 
+VALUES (1, 768, 'Brique placée sur la grille', 60), 
+       (2, 10, 'Brique défaussée', 60), 
+       (3, 12, 'Brique placée sur la grille', 60),
+       (4, 23, 'Brique défaussée', 60),
+       (5, 24, 'Brique placée sur la grille', 60),
+       (6, 25, 'Brique défaussée', 60),
+       (7, 26, 'Brique placée sur la grille', 60),
+       (8, 27, 'Brique défaussée', 60),
+       (9, 28, 'Brique placée sur la grille', 60),
+       (10, 29, 'Brique défaussée', 60);
+
 
 
 INSERT INTO projet.JOUEUR (idJoueur, prenom, date_inscription, avatar) 

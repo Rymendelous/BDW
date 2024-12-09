@@ -143,6 +143,11 @@ def max_pioche_idparties(connexion, nom_table):
     query = sql.SQL("""SELECT idpartie FROM {table} WHERE actions = 'Brique placée sur la grille' GROUP BY idpartie ORDER BY COUNT(actions) DESC LIMIT 3""").format(table=sql.Identifier(nom_table))
     return execute_select_query(connexion, query)
 
+#plus grandes pieces 
+def brique_plus_grandes(connexion, nom_table):
+    query = sql.SQL("""SELECT idb FROM {table} ORDER BY longueur*largeur DESC""").format(table=sql.Identifier(nom_table))
+    return execute_select_query(connexion, query)
+
 #fonctionnalité 2      
 def generer_grille(nb_lignes, nb_colonnes):
     lignes_hachures = [
