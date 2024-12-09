@@ -162,7 +162,7 @@ footer {
 .grille {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 0;
     justify-content: center;
     align-items: center;
     margin-top: 2em;

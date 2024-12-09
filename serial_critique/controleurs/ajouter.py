@@ -22,11 +22,13 @@ while True:
         break
 
 if POST and 'bouton_valider' in POST: 
+    print("dfgdg")
     brique_selectionnee = POST.get('brique_selectionnee')  
     infos_brique = get_infos_brique(SESSION['CONNEXION'], 'brique', brique_selectionnee)
     REQUEST_VARS['infos_brique'] = infos_brique
+    print(infos_brique)
   
-# Génére la grille statique
+# Pour la grille statique
 nb_lignes = 8
 nb_colonnes = 9
 REQUEST_VARS['grille'] = generer_grille(nb_lignes, nb_colonnes)
